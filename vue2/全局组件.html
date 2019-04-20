@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+
+
+<div id="app">
+    <custom-button></custom-button>
+</div>
+<script>
+    Vue.component('custom-button',{
+        template:'<button>按钮</button>'
+    });
+    new Vue({
+        el:'#app',
+    });
+</script>
+</body>
+</html>

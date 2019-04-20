@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <user-data slot-scope="user">
+        <p v-if="user">用户名:{{user}}</p>
+    </user-data>
+</div>
+<script>
+    Vue.component('user-data',{
+        template:'<div class="user"><slot :user="user"></slot></div>',
+        data:()=>({
+                user:undefined,
+        }),
+        mounted(){
+       //
+        }
+    });
+    new Vue({
+        el:'app'
+    })
+</script>
+</body>
+</html>

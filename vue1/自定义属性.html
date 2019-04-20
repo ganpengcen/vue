@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<style>
+    .fade-enter-active,.fade-leave-active{
+        transition: opacity .5s;
+    }
+    .fade-enter,.fade-leave-to{
+        opacity: 0;
+    }
+</style>
+<div id="app">
+    <p v-blink>闪烁</p>
+</div>
+<script>
+    Vue.directive('blink',{
+        el:'#app',
+        bind(el){
+            let isVisible = true;
+            setInterval(()=>{
+                isVisible = !isVisible;
+            el.style.visibility = isVisible? 'visible':'hidden';
+        },1000);
+        }
+    });
+</script>
+<div id="app2">
+  <button @click="divVisible = !divVisible">切换</button>
+    <transition name="fade">
+        <div v-if="divVisible">Content</div>
+    </transition>
+</div>
+<script>
+    new Vue({
+        el:'#app2',
+        data:{
+            divVisible:true
+        }
+    });
+</script>
+
+</body>
+</html>

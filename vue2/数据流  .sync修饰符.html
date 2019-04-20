@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+<count-from-number  :number.sync="number"/>
+</div>
+<script>
+    Vue.component('count-from-number',{
+        template:'<p>数字{{number}}</p>',
+        props:{
+            number:{
+                type:Number,
+                required:true
+            }
+        },
+        mounted(){
+            setInterval(()=>{
+                this.$emit('update:number',this.number+1);
+            },1000)
+        }
+    })
+</script>
+<script>
+    var  app =  new Vue({
+        el:'#app',
+        data:{
+            number:10,
+        }
+    })
+</script>
+</body>
+</html>

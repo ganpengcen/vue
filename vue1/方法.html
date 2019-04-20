@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <p>1{{statusFromId(status)}}</p>
+</div>
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            status:2
+        },
+        methods:{
+            statusFromId(id){
+                const status = ({
+                    0:'睡觉',
+                    1:'chifan',
+                    2:'dschs'
+                })[id];
+                return status||'weizhizhuangtai'+id;
+            }
+        }
+    });
+</script>
+<div id="app2">
+    <ul>
+        <li  v-for="number in filters(numbers)">{{number}}</li>
+    </ul>
+</div>
+<script>
+    new Vue({
+        el:'#app2',
+        data:{
+            numbers:[0,1,2,3,4,5,-1,-5,-9]
+        },
+        methods:{
+            filters(numbers){
+                return numbers.filter((number)=>number>=0);
+            }
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+<input-username></input-username></div>
+<script>
+    Vue.component('input-username',{
+        template:'<input type="text" :value="value" @input="handleInput">',
+        props:{
+            value:{
+                type:String,
+                required:true
+            }
+        },
+        methods:{
+            handleInput(b){
+                const value = b.target.value.toLowerCase();
+              console.log(b.target.value)
+                if(value !== b.target.value){
+                    b.target.value = value;
+                }
+                this.$emit('input',b);
+            }
+        }
+    });
+</script>
+<script>
+    new Vue({
+        el:'#app'
+    })
+</script>
+</body>
+</html>

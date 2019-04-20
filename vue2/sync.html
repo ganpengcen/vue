@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="vue.js"></script>
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <count-from-number :number.sync="number"></count-from-number>
+</div>
+<script>
+    Vue.component('count-from-number',{
+        template:'<p>数字:{{localnumber}}</p>',
+        props:{
+           number:{
+               type:Number,
+               required:true
+           }
+        },
+        computed:{
+            localnumber:{
+                get(){
+                    return this.number;
+                },
+                set(val){
+                    this.$emit('update:number',val);
+                }
+            }
+        },
+            mounted(){
+                setInterval(()=>{
+                    this.localnumber++ ;
+                },1000);
+        }
+    });
+</script>
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            number:10
+        }
+    })
+</script>
+</body>
+</html>

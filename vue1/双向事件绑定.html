@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+<input type="text" v-model="inputText">
+    <p>{{inputText}}</p>
+</div>
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            inputText:''
+        }
+    });
+</script>
+<div id="app2">
+    <label ><input type="radio" v-model="value" value="1">1</label>
+    <label><input type="radio" v-model="value" value="2">2</label>
+    <label><input type="radio" v-model="value" value="3">3</label>
+    <p>{{value}}</p>
+</div>
+<script>
+    new Vue({
+       el:'#app2',
+        data:{
+           value:'1'
+        }
+    });
+</script>
+</body>
+</html>

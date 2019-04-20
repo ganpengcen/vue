@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    Vue.component('display-number',{
+        template:'<p>shuzishi{{number}}</p>',
+        props:{
+            number:{
+                type:Number,
+                required:true
+            }
+        }
+    });
+</script>
+<template>
+    <p>当前数字是{{number}}</p>
+</template>
+<script>
+    export default{
+        props:{
+            number:{
+                type:Number,
+                required:true
+            }
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+<template>
+    <p><span :class="$style.number">{{number}}</span></p>
+</template>
+</div>
+    <style module>
+        .number{
+            font-weight: bold;
+        }
+    </style>
+</body>
+<script>
+    import DisplayNumber from 'display-number.vue';
+    new Vue({
+        el:'#app',
+        data:{
+            number:10,
+        }
+        components:{
+            DisplayNumber
+        }
+    });
+</script>
+</html>

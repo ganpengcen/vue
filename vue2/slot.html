@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <custom-button>dianji</custom-button>
+</div>
+<dvi id="app2">
+    <custom-button2>
+        <slot>默认文本</slot>
+    </custom-button2>
+</dvi>
+<script>
+    Vue.component('custom-button',{
+        template:'<button class="custom-button"><slot><span>默认按键文本</span></slot></button>'  //slot可以设置默认类容
+    })
+    new Vue({
+       el:'#app'
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <color-preview color="red"></color-preview>
+    <color-preview color="blue"></color-preview>
+</div>
+<script>
+    Vue.component('color-preview',{
+        template:'<div class="color-preview" :style="style"></div>',
+        props:['color'],   //props获得属性  this.color获得属性值
+        computed:{
+            style(){
+                return {backgroundColor: this.color};
+            }
+        }
+    });
+    new Vue({
+        el:'#app'
+    });
+</script>
+</body>
+</html>

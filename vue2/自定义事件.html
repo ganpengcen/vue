@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+
+
+<div id="app2" style="background-color: aliceblue">
+    <Counter v-on:count="handleCount"></Counter>
+    <p>单击次数{{clicks}}</p>
+</div>
+<script>
+ const Counter = {
+tempalte:'<button @click="handleclick">单机了{{clicks}}</button>',
+     data:()=>({
+     clicks:0
+ }),
+     methods:{
+     handleClick(){
+         this.clicks++;
+         this.$emit('count',this.clicks);
+     }
+ }
+ };
+ new Vue({
+        el:'#app2',
+     data:{
+            clicks:0
+     },
+     methods:{
+            handleCount(clicks){
+                this.clicks = clicks;
+            }
+     },
+     components :{
+            Counter
+     }
+    })
+</script>
+</body>
+</html>

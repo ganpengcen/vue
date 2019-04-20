@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <div v-bind:class="[firstclass, secondclass]"></div>
+</div>
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            firstclass:'foo'
+        },
+        computed:{
+            secondclass(){
+                return 'bar';
+            }
+        }
+    })
+</script>
+</body>
+</html>

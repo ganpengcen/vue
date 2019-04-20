@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <p v-if="path==='/'">你正位于首页</p>
+    <p v-else>你正位于{{path}}</p>
+</div>
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            path:location.pathname
+        }
+    });
+</script>
+</body>
+</html>

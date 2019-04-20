@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+<positive-numbers></positive-numbers>
+</div>
+<script>
+    Vue.component('positive-numbers',{
+        template:'<p>有{{positiveNumbers.length}}</p>',
+        data(){
+            return {
+                numbers:[1,2,5,1,56,-54,-45]
+            };
+        },
+        computed:{
+            positiveNumbers(){
+                return this.numbers.filter((number) =>number>=0);
+            }
+        }
+    });
+    new Vue({   //  需指出vue组件使用位置
+        el:'#app'
+    });
+</script>
+</body>
+</html>

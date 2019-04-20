@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <input type="text" v-model="inputValue">
+    <p>{{oldInputValue}}</p>
+</div>
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            inputValue:'',
+            oldInputValue:''
+        },
+        watch:{
+            inputValue(){
+                const newValue = this.inputValue;
+                setTimeout(()=>{
+                    this.oldInputValue = newValue;
+                },1000);
+            }
+        }
+    });
+</script>
+<div id="app2">
+    <p>{{productOne | formatCost}}</p>
+    <p>{{productTwo | formatCost}}</p>
+    <p>{{productThree | formatCost}}</p>
+    <p></p>
+    <p></p>
+</div>
+<script>
+    new Vue({
+       el:'#app2',
+       data:{
+           productOne:1003,
+           productTwo:1063,
+           productThree:2063
+       },
+       filters:{
+           formatCost(value){
+               return '$' + (value/100).toFixed(2);
+           }
+       }
+    });
+</script>
+</body>
+</html>

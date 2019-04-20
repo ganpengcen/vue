@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app"></div>
+<script>
+    new Vue({
+        el:'#app',
+        render(creatElement){
+            return creatElement(
+                'div',
+                [
+                    creatElement(
+                        'button',
+                        {
+                            on:{
+                                click:()=>this.count++
+                            }
+                        },
+                         '单机次数'
+                    ),
+            creatElement(
+                'p',
+                '你单机了按钮${this.counter}次'
+            )0
+                ]
+            );
+        }
+    })
+</script>
+</body>
+</html>

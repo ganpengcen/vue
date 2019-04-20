@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+<display-number v-bind:number="number"></display-number>
+</div>
+<script>
+    Vue.component('display-number',{
+        template:'<p>数字{{number}}</p>',
+        props:{
+            number:{
+                type:Number,
+                required:true
+            }
+        }
+    });
+</script>
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            number:10
+            },
+        created(){
+            setInterval(()=>{
+                this.number++;
+            },1000);
+        }
+    })
+</script>
+</body>
+</html>

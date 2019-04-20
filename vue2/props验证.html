@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <price-display  price=100></price-display>
+</div>
+<script>
+    Vue.component/yy('price-display',{
+       props:{
+           price:{
+               type:String,
+               required:true
+           }
+       },
+    });
+</script>
+<script>
+    new Vue({
+        el:'#app'
+    });
+</script>
+</body>
+</html>

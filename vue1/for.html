@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <ul>
+        <li v-for="dog in dogs">{{dog}}</li>
+    </ul>
+</div>
+<script>
+    new Vue({
+       el:'#app',
+       data:{
+           dogs:['dsc','dsv','fvi','iwk']
+       }
+    });
+</script>
+<div id="range">
+    <ul>
+        <li v-for="(money,city) in average">{{city}}{{money}}</li>
+    </ul>
+</div>
+<script>
+    new Vue({
+        el:'#range',
+        data:{
+             average:{
+                 pkovd:120,
+                 bj:816,
+                 fdv:84
+    }}
+    });
+</script>
+<div id="app2">
+    <ul>
+        <li v-for="n in 10">{{n-1}}</li>
+    </ul>
+</div>
+<script>
+    new Vue({
+       el:'#app2'
+    });
+</script>
+</body>
+</html>

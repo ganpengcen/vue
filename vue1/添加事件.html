@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <button v-on:click="count++">点击</button>
+    <p>1{{count}}</p>
+</div>
+<script>
+    new Vue({
+        el:'#app',
+        data:{count:0}
+    });
+</script>
+<div id="app2">
+    <button  @click.once="increse">diandi</button>
+    <p>3{{count}}</p>
+</div>
+<script>
+    new Vue({
+        el:'#app2',
+        data:{
+            count:0
+        },
+        methods:{
+            increse(){
+               this.count++
+            }
+        }
+    });
+</script>
+<div id="app3">
+    <input type="button" value="anxia" @keyup.27="changeesc">
+    <p>{{change}}</p>
+</div>
+<script>
+    new Vue({
+        el:'#app3',
+        data:{
+            change:'false'
+        },
+       methods:{ changeesc(){
+            this.change='true'
+        }}
+    });
+</script>
+</body>
+</html>

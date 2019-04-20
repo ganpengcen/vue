@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+    <script src="https://unpkg.com/vue-router"></script>
+</head>
+<body>
+<div id="app">
+    <h1>Sitejvosj</h1>
+    <main>
+        <router-view/>
+    </main>
+    <p>Page fo0ter</p>
+
+</div>
+
+<script>
+const PageHome = {
+    template:'<p>This is home page</p>'
+};
+
+const PageAbout = {
+    template:'<p>This is about page</p>'
+};
+
+const router = new VueRouter({
+    router:[
+        {
+            path:'/',component:PageHome
+        },
+        {
+            path:'/about',component:PageAbout
+        }
+    ]
+})
+    new Vue({
+        el:'#app',
+        router,
+    });
+</script>
+</body>
+</html>

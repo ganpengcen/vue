@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+<custom>
+    <li slot="1">11</li>
+    <li slot="2">22</li>
+    <li slot="3">33</li>
+    <li>123456</li>
+</custom>
+</div>
+<script>
+    Vue.component('custom',{
+        template:'<li>yi<solt name='1'></solt></solt></li><li>er<solt name='2'></soltname></solt></li></li><li>三<solt name='3'></solt></solt></li></li>'
+    })
+    new Vue({
+        el:'#app'
+    });
+</script>
+
+<div id="app">
+    <h1>商场里面的商品</h1>
+    <girl>
+        <li slot='shoes'>红色的鞋\绿色的鞋\不红不绿的鞋</li>
+        <li slot='skits'>冬天穿的裙\夏天穿的裙\睡觉穿的裙</li>
+        <li slot='makeup'>眼睛用的霜\每个季节不同的口红\白天黑夜分开的水</li>
+        <li>总之当一个漂亮的美少女很麻烦，所以各位好好疼爱手心的那个美女，不说了我是默认的心声因为我没有slot的name名字，找不到name的那个人就要显示我，请大家记住我是没有名字的雷锋，OvO</li>
+    </girl>
+
+</div>
+<script>
+    Vue.component('girl',{
+        template:'\
+        <h2>家里已经放不下~放不下~放不下的小心肝儿</h2>\
+        <ul>\
+            <li>\
+                高跟鞋\平底鞋\登山鞋\坡跟鞋\运动鞋\玛丽珍鞋\如此云云\
+                <slot name="shoes"></slot>\
+            </li>\
+            <li>\
+                长裙\迷你裙\牛仔裙\连身裙\薄纱裙\如此云云\
+                <slot name="skits"></slot>\
+            </li>\
+            <li>\
+                口红\粉底\隔离\防晒\腮红\眼影\如此云云\
+                <slot name="makeup"></slot>\
+            </li>\
+            <li>\
+                <slot></slot>\
+            </li>\
+        </ul>\
+        ',
+    })
+</script>
+
+</body>
+</html>
