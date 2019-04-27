@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+    <style>
+        .foo{
+            background-color: red;
+            height: 20px;
+            width: 100px;
+        }
+        .bar{
+            background-color: blue;
+            width: 100px;
+            height: 40px;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <div v-bind:class = "[firstClass,secondClass]"></div>
+</div>
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            firstClass:'foo'
+        },
+        computed:{
+            secondClass(){
+                return 'bar';
+            }
+        }
+    });
+</script>
+<div id="app2" v-bind:class="classes">2</div>
+<script>
+    new Vue({
+        el:'#app2',
+        data:{
+            handBear:true,
+        },
+        computed:{
+            classes(){
+                return {
+                    foo:true,
+                    bar:this.handBear,
+                    hello:false
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>

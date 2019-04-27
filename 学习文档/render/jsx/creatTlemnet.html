@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../vue.js
+"></script>
+</head>
+<body>
+<div id="app4">{{name}}</div>
+<script>
+    new Vue({
+        el:'#app4',
+        data:{
+            name:4
+        }
+    })
+</script>
+    1:<div id="app">{{name}}</div>
+    2: <div id="app2"></div>
+    3. <div id="app3"><a href=""><tx-et :name = "name"></tx-et></a></div>
+    <script>
+        Vue.component('te-xt',{
+            render:function (creatElemnt) {
+                return creatElemnt(
+                    'h'+this.text,this.$slots.default
+                )
+            },
+            props:{
+                name:{
+                    type:Number,
+                    required:true
+                }
+            }
+        })
+    </script>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                tagName:'span',
+                name:10,
+            },
+            render(creatElemnt){
+                return creatElemnt(this.tagName,'hello1');
+            }
+        })
+    </script>
+    <script>
+        new Vue({
+            el:'#app2',
+            render(creatElemnet){
+                return creatElemnet('h2',{
+                    attrs:{
+                        type:'submit'
+                    },
+                    props: {
+                        text:this.buttonText
+                    },
+                    domProps:{
+                        innerHTML:'hello2'
+                    }
+                });
+            },
+            data:{
+                buttonText:123,
+            }
+        })
+    </script>
+</body>
+</html>
